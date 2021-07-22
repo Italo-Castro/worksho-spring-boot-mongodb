@@ -2,11 +2,15 @@ package com.icc.worshopmongo.domain;
 
 import java.io.Serializable;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection ="user") //indica que a classe corresponde a uma coleção do MONGODB
 public class User implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	
-	private String idString;
+	@Id
+	private String id;
 	private String name;
 	private String mail;
 	
@@ -14,17 +18,17 @@ public class User implements Serializable{
 	
 	public User(String idString, String name, String mail) {
 		super();
-		this.idString = idString;
+		this.id = idString;
 		this.name = name;
 		this.mail = mail;
 	}
 
 	public String getIdString() {
-		return idString;
+		return id;
 	}
 
 	public void setIdString(String idString) {
-		this.idString = idString;
+		this.id = idString;
 	}
 
 	public String getName() {
@@ -47,7 +51,7 @@ public class User implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((idString == null) ? 0 : idString.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -60,10 +64,10 @@ public class User implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (idString == null) {
-			if (other.idString != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!idString.equals(other.idString))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
