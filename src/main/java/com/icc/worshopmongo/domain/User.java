@@ -16,19 +16,19 @@ public class User implements Serializable{
 	
 	public User() {}
 	
-	public User(String idString, String name, String mail) {
+	public User(String id, String name, String mail) {
 		super();
-		this.id = idString;
+		this.id = id;
 		this.name = name;
 		this.mail = mail;
 	}
 
-	public String getIdString() {
+	public String getId() {
 		return id;
 	}
 
-	public void setIdString(String idString) {
-		this.id = idString;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getName() {
